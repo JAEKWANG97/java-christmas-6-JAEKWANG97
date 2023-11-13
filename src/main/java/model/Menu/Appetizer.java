@@ -22,4 +22,13 @@ public enum Appetizer {
     public int getPrice() {
         return price;
     }
+
+    public boolean validateAppetizer(String name) {
+        for (Appetizer menu : Appetizer.values()) {
+            if (menu.getName().equals(name)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

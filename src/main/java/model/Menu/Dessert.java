@@ -1,4 +1,5 @@
 package model.Menu;
+
 public enum Dessert {
     CHOCOLATE_CAKE("초코케이크", 15000),
     ICE_CREAM("아이스크림", 5000);
@@ -17,5 +18,14 @@ public enum Dessert {
 
     public int getPrice() {
         return price;
+    }
+
+    public boolean validateDessert(String koreanName) {
+        for (Dessert menu : Dessert.values()) {
+            if (menu.getName().equals(koreanName)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

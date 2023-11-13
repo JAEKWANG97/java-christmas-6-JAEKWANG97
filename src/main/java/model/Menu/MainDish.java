@@ -22,4 +22,13 @@ public enum MainDish {
     public int getPrice() {
         return price;
     }
+
+    public boolean validateMainDish(String koreanName) {
+        for (MainDish menu : MainDish.values()) {
+            if (menu.getName().equals(koreanName)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

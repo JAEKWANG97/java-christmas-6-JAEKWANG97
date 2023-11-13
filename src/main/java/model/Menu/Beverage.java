@@ -19,4 +19,13 @@ public enum Beverage {
     public int getPrice() {
         return price;
     }
+
+    public boolean validateBeverage(String name) {
+        for (Beverage menu : Beverage.values()) {
+            if (menu.getName().equals(name)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
