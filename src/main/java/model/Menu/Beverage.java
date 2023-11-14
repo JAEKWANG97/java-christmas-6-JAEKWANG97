@@ -20,7 +20,7 @@ public enum Beverage {
         return price;
     }
 
-    public boolean validateBeverage(String name) {
+    public static boolean validateBeverage(String name) {
         for (Beverage menu : Beverage.values()) {
             if (menu.getName().equals(name)) {
                 return true;

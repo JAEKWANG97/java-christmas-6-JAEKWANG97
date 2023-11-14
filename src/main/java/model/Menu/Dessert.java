@@ -20,7 +20,7 @@ public enum Dessert {
         return price;
     }
 
-    public boolean validateDessert(String koreanName) {
+    public static boolean validateDessert(String koreanName) {
         for (Dessert menu : Dessert.values()) {
             if (menu.getName().equals(koreanName)) {
                 return true;
