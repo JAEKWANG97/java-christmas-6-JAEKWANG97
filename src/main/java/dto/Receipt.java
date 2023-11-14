@@ -11,7 +11,14 @@ public class Receipt {
         this.orders = orders;
     }
 
-    
+    public int getDate(){
+        return date;
+    }
+    public HashMap<String, Integer> getOrders(){
+        return orders;
+    }
+
+
 
 
 }
