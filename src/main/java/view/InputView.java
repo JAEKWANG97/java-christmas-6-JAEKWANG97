@@ -10,7 +10,6 @@ import model.Menu.Appetizer;
 import model.Menu.Beverage;
 import model.Menu.Dessert;
 import model.Menu.MainDish;
-import org.junit.jupiter.params.aggregator.ArgumentAccessException;
 
 public class InputView {
     private static String ERROR_DATE_MESSAGE = "[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.";
@@ -58,17 +57,17 @@ public class InputView {
         }
     }
 
-    private boolean checkDate(int date) {
+    private void checkDate(int date) {
         if (date <= 0 || date > 31) {
             throw new IllegalArgumentException();
         }
-        return true;
     }
-
+    private int total_count = 0;
+    private HashMap<String, Integer> orders = new HashMap<>();
     public HashMap<String, Integer> menuInputter() {
-        HashMap<String, Integer> orders = new HashMap<>();
         boolean validate = false;
         String input = "";
+        int total_count = 0; // 총 주문 수량을 초기화
         while (!validate) {
             System.out.println(MENU_MESSAGE);
             input = getInput();
@@ -78,26 +77,37 @@ public class InputView {
     }
 
     private boolean validateOrder(String input) {
-        List<String> orders = splitMenuItems(input);
+        List<String> orderList = splitMenuItems(input);
         HashSet<String> orderMenu = new HashSet<>();
-        int total_count = 0;
         try {
-            for (String order : orders) {
-                String[] orderItem = order.split("-");
-                if (orderItem.length != 2) {
-                    throw new IllegalArgumentException();
-                }
-                String name = orderItem[0];
-                int count = turnToInt(orderItem[1]);
-                isValidCount(count);
-                total_count = isValidTotalCount(total_count, count);
-                isinItem(name);
-                isDuplicateOrder(name, orderMenu);
+            for (String order : orderList) {
+                isValidOrder(order, orderMenu);
             }
             return hasNonBeverageItem(orderMenu);
         } catch (IllegalArgumentException e) {
             System.out.println(ERROR_ORDER_MESSAGE);
+            total_count = 0;
+            orders.clear();
             return false;
+        }
+    }
+
+    private void isValidOrder(String input, HashSet<String> orderMenu) {
+        String[] orderItem = input.split("-");
+        isValidSize(orderItem);
+        String name = orderItem[0];
+        int count = turnToInt(orderItem[1]);
+        isValidCount(count);
+        isValidTotalCount(count);
+        isinItem(name);
+        isDuplicateOrder(name, orderMenu);
+        orders.put(name, count);
+    }
+
+
+    private void isValidSize(String[] input){
+        if (input.length != 2) {
+            throw new IllegalArgumentException();
         }
     }
 
@@ -112,12 +122,11 @@ public class InputView {
     }
 
 
-    private int isValidTotalCount(int total_count, int count) {
+    private void isValidTotalCount(int count) {
         total_count += count;
         if (total_count > 20) {
             throw new IllegalArgumentException(ERROR_ORDER_MESSAGE);
         }
-        return total_count;
     }
 
     private HashSet<String> isDuplicateOrder(String name, HashSet<String> orderMenu) {
