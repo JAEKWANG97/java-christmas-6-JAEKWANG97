@@ -2,6 +2,7 @@ package view;
 
 import dto.Receipt;
 import java.util.HashMap;
+import model.CalculatorTotalCost;
 import model.Menu.Menu;
 
 public class OutputView {
@@ -19,5 +20,14 @@ public class OutputView {
             Integer value = orders.get(key);
             System.out.println(key + " "+ value+"개");
         }
+    }
+
+    public void totalAmountBeforeDiscountOutputter(Receipt receipt){
+        CalculatorTotalCost calculatorTotalCost = new CalculatorTotalCost(receipt);
+        int totalAmountBeforeDiscount = calculatorTotalCost.getTotalAmountBeforeDiscount();
+        String formattedTotal = String.format("%,d", totalAmountBeforeDiscount);
+
+        System.out.println("<할인 전 총주문 금액>");
+        System.out.println(formattedTotal + "원");
     }
 }
