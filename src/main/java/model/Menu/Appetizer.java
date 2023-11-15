@@ -23,12 +23,12 @@ public enum Appetizer {
         return price;
     }
 
-        public static boolean validateAppetizer(String name) {
-            for (Appetizer menu : Appetizer.values()) {
-                if (menu.getName().equals(name)) {
-                    return true;
-                }
+    public static boolean validateAppetizer(String name) {
+        for (Appetizer menu : Appetizer.values()) {
+            if (menu.getName().equals(name)) {
+                return true;
             }
-            return false;
         }
+        return false;
+    }
 }
