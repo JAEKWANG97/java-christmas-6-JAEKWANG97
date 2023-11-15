@@ -19,7 +19,7 @@ public class CalculatorTotalCost {
 
     private final String[] weekday = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"};
     private final String[] weekend = {"Friday", "Saturday"};
-    private final int[] eventDay = {3, 10, 17, 24, 31};
+    private final int[] eventDay = {3, 10, 17, 24,25, 31};
 
 
     public CalculatorTotalCost(HashMap<String, Integer> receipt, int date) {
@@ -76,8 +76,7 @@ public class CalculatorTotalCost {
     public int calculateWeekdayDiscount() {
         int discount = 0;
         String day = calculateReservationDay(date);
-        if (!Arrays.asList(weekday).contains(day))
-        {
+        if (!Arrays.asList(weekday).contains(day)) {
             return 0;
         }
         for (String key : receipt.keySet()) {
@@ -92,8 +91,7 @@ public class CalculatorTotalCost {
     public int calculateWeekendDiscount() {
         int discount = 0;
         String day = calculateReservationDay(date);
-        if (!Arrays.asList(weekend).contains(day))
-        {
+        if (!Arrays.asList(weekend).contains(day)) {
             return 0;
         }
         for (String key : receipt.keySet()) {
@@ -113,10 +111,5 @@ public class CalculatorTotalCost {
         }
         return 0;
     }
-
-    //평일 할인(일요일~목요일): 평일에는 디트저 메뉴를 메뉴 1개당 2,023원 할인
-    //주말 할인(금요일, 토요일): 주말에는 메인 메뉴를 메뉴 1개당 2,023원 할인
-    //특별 할인: 이벤트 달력에 별이 있으면 총주문 금액에서 1,000원 할인
-    //[x] 이벤트 기간: '크리스마스 디데이 할인'을 제외한 다른 이벤트는 2023.12.1 ~ 2023.12.31 동안 적용
 
 }
