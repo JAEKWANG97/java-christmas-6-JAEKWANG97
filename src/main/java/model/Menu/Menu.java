@@ -24,7 +24,7 @@ public class Menu {
         return -1;
     }
 
-    private static int getAppetizerPrice(String name) {
+    public static int getAppetizerPrice(String name) {
         for (Appetizer menu : Appetizer.values()) {
             if (menu.getName().equals(name)) {
                 return menu.getPrice();
@@ -33,7 +33,7 @@ public class Menu {
         return -1;
     }
 
-    private static int getBeveragePrice(String name) {
+    public static int getBeveragePrice(String name) {
         for (Beverage menu : Beverage.values()) {
             if (menu.getName().equals(name)) {
                 return menu.getPrice();
@@ -42,7 +42,7 @@ public class Menu {
         return -1;
     }
 
-    private static int getMainDishtPrice(String name) {
+    public static int getMainDishtPrice(String name) {
         for (MainDish menu : MainDish.values()) {
             if (menu.getName().equals(name)) {
                 return menu.getPrice();
@@ -51,7 +51,7 @@ public class Menu {
         return -1;
     }
 
-    private static int getDessertPrice(String name) {
+    public static int getDessertPrice(String name) {
         for (Dessert menu : Dessert.values()) {
             if (menu.getName().equals(name)) {
                 return menu.getPrice();
