@@ -10,6 +10,7 @@ import model.Menu.Appetizer;
 import model.Menu.Beverage;
 import model.Menu.Dessert;
 import model.Menu.MainDish;
+import model.Menu.Menu;
 
 public class InputView {
     private static String ERROR_DATE_MESSAGE = "[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.";
