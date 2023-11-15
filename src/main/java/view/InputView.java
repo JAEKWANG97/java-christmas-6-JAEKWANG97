@@ -63,8 +63,10 @@ public class InputView {
             throw new IllegalArgumentException();
         }
     }
+
     private int total_count = 0;
     private HashMap<String, Integer> orders = new HashMap<>();
+
     public HashMap<String, Integer> menuInputter() {
         boolean validate = false;
         String input = "";
@@ -106,7 +108,7 @@ public class InputView {
     }
 
 
-    private void isValidSize(String[] input){
+    private void isValidSize(String[] input) {
         if (input.length != 2) {
             throw new IllegalArgumentException();
         }

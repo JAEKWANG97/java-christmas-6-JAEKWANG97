@@ -62,7 +62,8 @@ public class OutputView {
     public void totalBenefitAmountOutputter(Receipt receipt) {
         System.out.println("<총혜택 금액>");
         if (receipt.getTotalDiscountAmount() > 0) {
-            String formattedAmount = String.format("%,d", receipt.getTotalDiscountAmount() + receipt.getGiveAwayAmount());
+            String formattedAmount = String.format("%,d",
+                    receipt.getTotalDiscountAmount() + receipt.getGiveAwayAmount());
             System.out.println("-" + formattedAmount + "원");
             return;
         }
@@ -80,15 +81,16 @@ public class OutputView {
 
     public void estimatedPaymentAmountAfterDiscount(Receipt receipt) {
         System.out.println("<할인 후 예상 결제 금액>");
-        String formattedAmount = String.format("%,d", receipt.getTotalAmountBeforeDiscount() - receipt.getTotalDiscountAmount());
-        System.out.println(formattedAmount+"원");
+        String formattedAmount = String.format("%,d",
+                receipt.getTotalAmountBeforeDiscount() - receipt.getTotalDiscountAmount());
+        System.out.println(formattedAmount + "원");
     }
 
-    public void BadgeOutputter(Receipt receipt){
+    public void BadgeOutputter(Receipt receipt) {
         BadgeAssigner badgeAssigner = new BadgeAssigner(receipt);
         String badge = badgeAssigner.getBadge();
         System.out.println("<12월 이벤트 배지>");
-        if (badge != null){
+        if (badge != null) {
             System.out.println(badge);
             return;
         }
