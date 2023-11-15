@@ -1,4 +1,4 @@
-package dto;
+package model;
 
 import java.util.HashMap;
 import model.CalculatorTotalCost;
@@ -12,14 +12,14 @@ public class Receipt {
     private final HashMap<String, Integer> orders;
     private final int totalAmountBeforeDiscount;
 
-    private  int totalDiscountAmount = 0;
+    private int totalDiscountAmount = 0;
 
-    private  int weekendDiscountAmount = 0;
-    private  int weekdayDiscountAmount = 0;
-    private  int eventdayDiscountAmount = 0;
-    private  int chirstmasDDayDiscountAmount = 0;
+    private int weekendDiscountAmount = 0;
+    private int weekdayDiscountAmount = 0;
+    private int eventdayDiscountAmount = 0;
+    private int chirstmasDDayDiscountAmount = 0;
 
-    private  int giveAwayAmount;
+    private int giveAwayAmount;
 
     private final HashMap<String, Integer> giveAway;
 
@@ -57,9 +57,8 @@ public class Receipt {
 
 
     public int getTotalDiscountAmount() {
-        return totalDiscountAmount ;
+        return totalDiscountAmount;
     }
-
 
 
     public int getWeekendDiscountAmount() {
