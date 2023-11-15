@@ -2,6 +2,7 @@ package view;
 
 import dto.Receipt;
 import java.util.HashMap;
+import model.BadgeAssigner;
 import model.CalculatorTotalCost;
 import model.Menu.Menu;
 
@@ -81,5 +82,16 @@ public class OutputView {
         System.out.println("<할인 후 예상 결제 금액>");
         String formattedAmount = String.format("%,d", receipt.getTotalAmountBeforeDiscount() - receipt.getTotalDiscountAmount());
         System.out.println(formattedAmount+"원");
+    }
+
+    public void BadgeOutputter(Receipt receipt){
+        BadgeAssigner badgeAssigner = new BadgeAssigner(receipt);
+        String badge = badgeAssigner.getBadge();
+        System.out.println("<12월 이벤트 배지>");
+        if (badge != null){
+            System.out.println(badge);
+            return;
+        }
+        System.out.println("없음");
     }
 }
