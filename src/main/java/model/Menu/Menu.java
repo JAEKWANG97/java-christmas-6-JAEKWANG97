@@ -9,18 +9,22 @@ public class Menu {
     }
 
     public static int getMenuPrice(String name) {
-        int price;
-        price = getAppetizerPrice(name);
-        if (price != -1) return price;
-        price = getBeveragePrice(name);
-        if (price != -1) return price;
-        price = getMainDishtPrice(name);
-        if (price != -1) return price;
-        price = getDessertPrice(name);
-        return price;
+        if (getAppetizerPrice(name) != -1) {
+            return getAppetizerPrice(name);
+        }
+        if (getBeveragePrice(name) != -1) {
+            return getBeveragePrice(name);
+        }
+        if (getMainDishtPrice(name) != -1) {
+            return getMainDishtPrice(name);
+        }
+        if (getDessertPrice(name) != -1) {
+            return getDessertPrice(name);
+        }
+        return -1;
     }
 
-    private static int getAppetizerPrice(String name){
+    private static int getAppetizerPrice(String name) {
         for (Appetizer menu : Appetizer.values()) {
             if (menu.getName().equals(name)) {
                 return menu.getPrice();
@@ -28,7 +32,8 @@ public class Menu {
         }
         return -1;
     }
-    private static int getBeveragePrice(String name){
+
+    private static int getBeveragePrice(String name) {
         for (Beverage menu : Beverage.values()) {
             if (menu.getName().equals(name)) {
                 return menu.getPrice();
@@ -36,7 +41,8 @@ public class Menu {
         }
         return -1;
     }
-    private static int getMainDishtPrice(String name){
+
+    private static int getMainDishtPrice(String name) {
         for (MainDish menu : MainDish.values()) {
             if (menu.getName().equals(name)) {
                 return menu.getPrice();
@@ -45,7 +51,7 @@ public class Menu {
         return -1;
     }
 
-    private static int getDessertPrice(String name){
+    private static int getDessertPrice(String name) {
         for (Dessert menu : Dessert.values()) {
             if (menu.getName().equals(name)) {
                 return menu.getPrice();
