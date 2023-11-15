@@ -3,8 +3,6 @@ package view;
 import dto.Receipt;
 import java.util.HashMap;
 import model.BadgeAssigner;
-import model.CalculatorTotalCost;
-import model.Menu.Menu;
 
 public class OutputView {
     public void greetMessageOutputter() {
@@ -31,6 +29,8 @@ public class OutputView {
         System.out.println("<할인 전 총주문 금액>");
         System.out.println(formattedTotal + "원");
     }
+
+
 
     public void giveAwayOutputter(Receipt receipt) {
         HashMap<String, Integer> giveAway = receipt.getGiveAway();

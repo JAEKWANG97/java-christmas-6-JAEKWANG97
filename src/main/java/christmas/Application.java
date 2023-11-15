@@ -1,7 +1,6 @@
 package christmas;
 
 import dto.Receipt;
-import model.CalculatorTotalCost;
 import view.InputView;
 import view.OutputView;
 

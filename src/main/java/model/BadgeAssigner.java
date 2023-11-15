@@ -21,6 +21,7 @@ public class BadgeAssigner {
             this.badge = null; // NULL 대신 null 사용
         }
     }
+
     public String getBadge() {
         return badge;
     }
