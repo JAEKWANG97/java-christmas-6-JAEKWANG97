@@ -1,4 +1,4 @@
-package model;
+package dto;
 
 import java.util.HashMap;
 import model.CalculatorTotalCost;
@@ -93,5 +93,10 @@ public class Receipt {
             item.put("샴페인", count);
         }
         return item;
+    }
+
+
+    public void setTotalDiscountAmount(int totalBenefitAmount) {
+        this.totalDiscountAmount = totalBenefitAmount;
     }
 }
