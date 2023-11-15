@@ -19,7 +19,7 @@ public class CalculatorTotalCost {
 
     private final String[] weekday = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"};
     private final String[] weekend = {"Friday", "Saturday"};
-    private final int[] eventDay = {3, 10, 17, 24,25, 31};
+    private final int[] eventDay = {3, 10, 17, 24, 25, 31};
 
 
     public CalculatorTotalCost(HashMap<String, Integer> receipt, int date) {

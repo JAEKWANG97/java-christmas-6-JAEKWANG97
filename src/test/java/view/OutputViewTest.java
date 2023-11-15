@@ -34,7 +34,7 @@ public class OutputViewTest {
     }
 
     @Test
-    public void testBenefitsPreviewOutputter(){
+    public void testBenefitsPreviewOutputter() {
         OutputView outputView = new OutputView();
         int date = 26;
         HashMap<String, Integer> orders = new HashMap<>();
@@ -47,9 +47,8 @@ public class OutputViewTest {
         outputView.benefitsPreviewOutputter(new Receipt(date, orders));
         String output = outputStream.toString().trim();
 
-        assertEquals("12월 26일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!" , output);
+        assertEquals("12월 26일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!", output);
     }
-
 
 
 }

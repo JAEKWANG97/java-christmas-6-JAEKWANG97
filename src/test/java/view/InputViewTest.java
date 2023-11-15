@@ -18,6 +18,7 @@ class InputViewTest {
         inputView = new InputView();
         originalSystemIn = System.in;
     }
+
     @Test
     public void testDateInputterWithValidDate() {
         String input = "15\n";
@@ -26,6 +27,7 @@ class InputViewTest {
         int result = inputView.dateInputter();
         assertEquals(15, result);
     }
+
     @Test
     public void testDateInputterWithValidDateAfterInvalidInput() {
         InputView inputView = new InputView();
@@ -39,7 +41,7 @@ class InputViewTest {
     }
 
     @Test
-    public void testMenuInputterWithValidOrderAfterInvalidOrder(){
+    public void testMenuInputterWithValidOrderAfterInvalidOrder() {
         InputView inputView = new InputView();
 
         String input = "해산물파스타-21,초코케이크-1\n레드와인-1\n해산물파스타-1,레드와인-1";

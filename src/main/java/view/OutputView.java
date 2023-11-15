@@ -31,7 +31,6 @@ public class OutputView {
     }
 
 
-
     public void giveAwayOutputter(Receipt receipt) {
         HashMap<String, Integer> giveAway = receipt.getGiveAway();
         System.out.println("<증정 메뉴>");
